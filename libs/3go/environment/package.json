@@ -1,0 +1,35 @@
+{
+  "name": "@3go/environment",
+  "version": "0.0.4",
+  "private": false,
+  "keywords": [
+    "angular5",
+    "environment",
+    "manager",
+    "json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/morc3go/environment"
+  },
+  "bugs": {
+    "url": "https://github.com/morc3go/environment/issues"
+  },
+  "homepage": "https://github.com/morc3go/environment",
+  "author": {
+    "name": "ayslanjohnson",
+    "email": "ayslanjohnson@gmail.com"
+  },
+  "publisher": "ayslanjohnson",
+  "contributors": [
+    "ayslanjohnson"
+  ],
+  "license": "MIT",
+  "ngPackage": {
+    "lib": {
+      "comments" : "none",
+      "entryFile": "public_api.ts"
+    },
+    "dest": "../../../node_modules/@3go/environment"
+  }
+}

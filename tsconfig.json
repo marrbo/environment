@@ -1,0 +1,38 @@
+{
+  "compileOnSave": false,
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true, // Obrigatório para copmpilação AOT
+    "preserveWhitespaces": false // Obrigatório para copmpilação AOT
+  },
+  "compilerOptions": {
+    "baseUrl": "",
+    "module": "es2015",
+    "target": "es2015",
+    "lib": ["dom", "es2017"],
+    "typeRoots": ["node_modules/@types"],
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true, // Obrigatório para copmpilação AOT
+    "experimentalDecorators": true,
+    "skipLibCheck": true,
+    "noImplicitReturns": true,
+    "noImplicitAny": true,
+    "strictNullChecks": true,
+    "allowUnreachableCode": false,
+    "noUnusedParameters": true,
+    "noUnusedLocals": true,
+    "noFallthroughCasesInSwitch": true,
+    "importHelpers": true,
+    "sourceMap": false,
+    "inlineSources": true,
+    "pretty": false,
+    // "paths": {
+      // "@aslib/*": ["libs/*/public_api.ts"],
+      // "@aslib/components": ["libs/components/public_api.ts"],
+      // "@aslib/security": ["libs/security/public_api.ts"],
+      // "@aslib/dual-list": ["libs/dual-list/public_api.ts"],
+      // "@aslib/title": ["libs/title/public_api.ts"],
+      // "@aslib/theme": ["libs/theme"]
+    // }
+  },
+  "exclude": ["**/node_modules", "tmp", "**/dist"]
+}

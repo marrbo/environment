@@ -1,0 +1,10 @@
+{
+  "localhost": {
+    "url": "LOCALHOST url",
+    "api": "LOCALHOST api"
+  },
+  "prod": {
+    "url": "127.0.0.1 url",
+    "api": "127.0.0.1 api"
+  }
+}
