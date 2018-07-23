@@ -1,0 +1,30 @@
+{
+  "compileOnSave": false,
+  "angularCompilerOptions": {
+    "fullTemplateTypeCheck": true,
+    "preserveWhitespaces": false
+  },
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "../../../dist/out-tsc/apps/demo-packaged",
+    "module": "es2015",
+    "target": "es2015",
+    "lib": ["dom", "es2017"],
+    "typeRoots": ["node_modules/@types"],
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "paths": {
+      "@aslib/*": ["../../../libs/aslib/*/public_api"],
+      "@ascas/*": ["../../../libs/ascas/*/public_api"],
+      "@morc3go/*": ["../../../libs/morc3go/*/public_api"]
+    }
+  },
+  "include": [
+    "**/*.ts",
+    "aslib/security/src/security.ts"
+  ],
+  "exclude": [
+    "**/*.spec.ts"
+  ]
+}
