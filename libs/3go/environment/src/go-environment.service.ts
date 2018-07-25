@@ -88,7 +88,7 @@ export class GoEnvironmentService {
     }.${this.getExtension()}`;
 
     /// retorna conteúdo do arquivo como promisse
-    return await this.getJSON();
+    return this.getJSON();
   }
 
   /// leitura do arquivo definido
