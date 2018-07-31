@@ -14,7 +14,7 @@ $ npm i @3go/environment --save
 
 Works with angular 5 and 6.
 
-## Demos
+## Examples
 
 Angular 5:
 
