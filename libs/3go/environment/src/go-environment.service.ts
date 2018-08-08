@@ -3,6 +3,10 @@ import { ConfigFile } from "./config-file";
 import "rxjs/add/operator/toPromise";
 import { Injectable } from "@angular/core";
 
+/**
+ * Verify if a object has value
+ * @param value any
+ */
 export function hasValue<T>(value: T): boolean {
   return value !== undefined && value !== null;
 }
@@ -13,21 +17,33 @@ export function hasValue<T>(value: T): boolean {
  */
 @Injectable()
 export class GoEnvironmentService {
+  /**
+   * Read params export to public view
+   */
   public params: any = {};
   private _hostname = document.location.hostname;
-  private _configFile = "aslib.config";
+  private _configFile = "config";
   private _storageName = "localhost";
 
-  // construtor
-  constructor(private envConfig: ConfigFile, private _http: HttpClient) {
-    this.testConfig();
+  /**
+   * Default constructor.
+   * read json data,
+   * set defaults configs and hostnames
+   * @param envConfig ConfigFile
+   * @param _http readonly HttpClient
+   */
+  constructor(
+    private envConfig: ConfigFile,
+    private readonly _http: HttpClient
+  ) {
+    this.defaultConfig();
     this.setHostName();
     this.config();
   }
 
   private setHostName(): void {
     // varre as opções de ambiente para definir o nome do ambiente atual
-    const urls = this.envConfig.environments;
+    const urls: any = this.envConfig.environments;
 
     Object.keys(urls).forEach((optionName: string) => {
       const value: string = urls[optionName];
@@ -39,7 +55,7 @@ export class GoEnvironmentService {
     });
   }
 
-  private testConfig(): void {
+  private defaultConfig(): void {
     // verifica se foi definido algum valor customizado
     // atribui as configurações inicias.
     // define os valores padrão para os campos sem valor
@@ -48,7 +64,7 @@ export class GoEnvironmentService {
         name: "config",
         extension: "json",
         path: "./assets/",
-        environments: { "localhost": "localhost" }
+        environments: { localhost: "localhost" }
       };
     } else {
       if (this.envConfig.name === void 0) {
@@ -68,12 +84,14 @@ export class GoEnvironmentService {
       }
 
       if (this.envConfig.environments === void 0) {
-        this.envConfig.environments = { "localhost": "localhost" };
+        this.envConfig.environments = { localhost: "localhost" };
       }
     }
   }
 
-  /// método público que devolve as configurações lidas com o tipo especificado
+  /**
+   * read and create enviroment params
+   */
   public async config(): Promise<any> {
     const _aslibDefault: string = "/3go.environment/";
 
@@ -91,7 +109,9 @@ export class GoEnvironmentService {
     return this.getJSON();
   }
 
-  /// leitura do arquivo definido
+  /**
+   * leitura do arquivo definido
+   */
   private async getJSON(): Promise<any> {
     // const data = sessionStorage[this._storageName];
     let jsonRetorno: any = await this.getStorage();
@@ -134,6 +154,10 @@ export class GoEnvironmentService {
     );
   }
 
+  /**
+   * replace angular enviroment
+   * @param enviromentAngular
+   */
   public async replace(enviromentAngular: any): Promise<any> {
     Object.keys(this.params).forEach((optionName: string) => {
       const value: string = this.params[optionName];
@@ -165,10 +189,9 @@ export class GoEnvironmentService {
   private getPath(): string {
     if (this.envConfig.path) {
       if (this.envConfig.path[this.envConfig.path.length - 1] !== "/") {
-        this.envConfig.path += '/';
-     }
+        this.envConfig.path += "/";
+      }
     }
-
 
     return this.envConfig.path || `${document.location.href}./assets/`;
   }
