@@ -1,9 +1,4 @@
 /**
- * AslibCustomErrorHandler import
- */
-import { CustomErrorHandler } from "./custom-error-handler";
-
-/**
  * Principal Module import
  */
 import { GoEnvironmentModule } from "./go-environment.module";
@@ -25,18 +20,11 @@ import { ConfigFile } from "./config-file";
 import { IEnviroments } from "./enviroments";
 
 /**
- * Custom Error class import
- */
-import { FileError } from "./file-error";
-
-/**
  * Export all objects (moudles, services, interfaces)
  */
 export {
-  CustomErrorHandler,
   GoEnvironmentModule,
   GoEnvironmentService,
   ConfigFile,
-  IEnviroments,
-  FileError
+  IEnviroments
 };

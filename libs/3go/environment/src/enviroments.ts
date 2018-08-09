@@ -1,5 +1,5 @@
 /**
- * Classe genérica para armazenamento de configurações
+ * Generic class for store environments
  *
  */
 export interface IEnviroments<T> {
